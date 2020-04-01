@@ -42,3 +42,13 @@ let cookiesAndCream = function () {}
 // Remove all tasks that are longer than five characters (tricky because when you remove something the indexes of the following elements shrink by 1)
 // Hint: Try reversing the array backwards
 let removeLongTasks = function () {}
+
+
+
+// Finetuning:
+// Some values might not be meaningful to add as a task, consider only adding the prompted value to the task array if it is a meaningful one
+// Examples:  
+//      - 'prompt' dialogue boxes that get canceled returns an 'undefined' value
+//      - 'prompt' dialogue boxes returns 'null' if you press 'ok' without writing anything in the field
+//      - if the prompt only has non-visible characters (spaces, linebreaks and such) that isn't a meaningful task either
+//        TIP: the following expression '!(/\S/.test(stringVariableName))' will return 'true' if variable 'stringVariableName' is a string with only whitespace.
