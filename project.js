@@ -10,8 +10,6 @@ let taskArr = ["Do the dishes :/"];
 // Ask for a todo-task and add it to the beginning of the array
 let addToTop = function () {}
 
-
-
 // Ask for a task and add it to end of the array
 let addToBottom = function () {}
 
