@@ -1,4 +1,4 @@
-// TIPS: When you need userinput, use the function called "prompt" 
+// HINT: When you need userinput, use the function called "prompt" 
 
 // Example: 
 //    let answer = prompt("What is your name?");
