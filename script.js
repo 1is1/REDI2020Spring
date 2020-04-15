@@ -1,7 +1,11 @@
-const createNewTaskElement = function( taskDescription ) {
+const createNewTaskElement = function( taskObject ) {
     const element = document.createElement("div");
     element.setAttribute("class", "todoTask");
-    element.textContent = taskDescription;
+    element.textContent = taskObject.taskDescription;
+    if (taskObject.isImportant) {
+        element.style.fontWeight = 900;
+        element.style.color = "#b00";
+    }
     return element;
 }
 
@@ -36,6 +40,7 @@ $( 'document' ).ready(function() {
     updateTasks();
     $( "#addTop" ).click( runFunctionAndUpdateTasks(addToTop) );
     $( "#addBottom" ).click( runFunctionAndUpdateTasks(addToBottom) );
+    $( "#addImportant" ).click( runFunctionAndUpdateTasks(addImportant) );
     $( "#removeTop" ).click( runFunctionAndUpdateTasks(removeFromTop) );
     $( "#removeBottom" ).click( runFunctionAndUpdateTasks(removeFromBottom) );
     $( "#clearList" ).click( runFunctionAndUpdateTasks(clearList) );
@@ -48,11 +53,25 @@ $( 'document' ).ready(function() {
     $( "#title" ).click( () => alert("What up, sku' det være en hoddok?") );
 });
 
+let createUnimportantTask = function( taskDescription ) {
+    return {
+        taskDescription: taskDescription,
+        isImportant: false
+    }
+}
+
+let createImportantTask = function( taskDescription ) {
+    return {
+        taskDescription: taskDescription,
+        isImportant: true
+    }
+}
 
 const randomTasks = ["Do laundry", "Relax", "Sleep", "Buy Milk", "Go for a walk", "Call mom", "Read a book", "Empty dryer", "Go to bed early", "Nap", "Practice coding", "Pick up mail", "Practice violin", "Practice harmonica", "Go for a jog", "Prepare food for tomorrow"];
 let addRandomTask = function () {
     const randomIndex = Math.floor(Math.random()*randomTasks.length);
-    taskArr.push(randomTasks[randomIndex]);
+    let randomTask = Math.random() > 0.3 ? createUnimportantTask(randomTasks[randomIndex]) : createImportantTask(randomTasks[randomIndex]);
+    taskArr.push(randomTask);
 }
 
 
