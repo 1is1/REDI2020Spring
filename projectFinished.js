@@ -14,7 +14,7 @@ let taskArr = [
 
 let createTaskWithImportance = function ( taskDescription, isImportant ) {
     return {
-        taskDescription: taskDescription,
+        taskDescription: taskDescription + (isImportant ? "!" : ""),
         isImportant: isImportant
     };
 }
@@ -41,6 +41,7 @@ let addToBottom = function () {
 }
 
 // Ask for a todo-task and add it to the beginning of the array
+// Make sure it looks extra important by adding an "!" to the taskDescription
 let addImportant = function () {
     const taskDescription = prompt("Please describe the task:");
     let task = createTaskWithImportance(taskDescription, true);
