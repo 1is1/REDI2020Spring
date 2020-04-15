@@ -70,8 +70,13 @@ let createImportantTask = function( taskDescription ) {
 const randomTasks = ["Do laundry", "Relax", "Sleep", "Buy Milk", "Go for a walk", "Call mom", "Read a book", "Empty dryer", "Go to bed early", "Nap", "Practice coding", "Pick up mail", "Practice violin", "Practice harmonica", "Go for a jog", "Prepare food for tomorrow"];
 let addRandomTask = function () {
     const randomIndex = Math.floor(Math.random()*randomTasks.length);
-    let randomTask = Math.random() > 0.3 ? createUnimportantTask(randomTasks[randomIndex]) : createImportantTask(randomTasks[randomIndex]);
-    taskArr.push(randomTask);
+    if (Math.random() > 0.3) {
+        let task = createUnimportantTask(randomTasks[randomIndex]);
+        taskArr.push(task);
+    } else {
+        let task = createImportantTask(randomTasks[randomIndex]);
+        taskArr.splice(0,0, task);
+    }
 }
 
 
