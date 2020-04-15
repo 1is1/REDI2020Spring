@@ -4,19 +4,47 @@
 //    let answer = prompt("What is your name?");
 //  The line above will ask the user "What is your name?" and whatever the user replies, will be saved in the variable "answer".
 
-// The "taskArr" is the array you will be manipulating in this mini-project
-let taskArr = ["Do the dishes :/"];
+// The "taskArr" is the array you will be manipulating in this project
+let taskArr = [
+    {taskDescription: "Brush teeth!", isImportant: true},
+    {taskDescription: "This is another important task!", isImportant: true},
+    {taskDescription: "This is a not so important task", isImportant: false},
+    {taskDescription: "This is a another not so important task" }
+];
+
+let createTaskWithImportance = function ( taskDescription, isImportant ) {
+    return {
+        taskDescription: taskDescription,
+        isImportant: isImportant
+    };
+}
+
+let createTask = function ( taskDescription ) {
+  return {
+      taskDescription: taskDescription,
+      isImportant: false
+  }  
+} 
 
 // Ask for a todo-task and add it to the beginning of the array
 let addToTop = function () {
     const taskDescription = prompt("Please describe the task:");
-    taskArr.splice(0,0,taskDescription);
+    let task = createTask(taskDescription);
+    taskArr.splice(0,0, task);
 }
 
 // Ask for a task and add it to end of the array
 let addToBottom = function () {
     const taskDescription = prompt("Please describe the task:");
-    taskArr.push(taskDescription);
+    let task = createTask(taskDescription);
+    taskArr.push(task);
+}
+
+// Ask for a todo-task and add it to the beginning of the array
+let addImportant = function () {
+    const taskDescription = prompt("Please describe the task:");
+    let task = createTaskWithImportance(taskDescription, true);
+    taskArr.splice(0,0, task);
 }
 
 // Remove an item from the beginning of the array
@@ -41,13 +69,19 @@ let reverseList = function () {
 
 // Set the array to a sequence of at least five tasks
 let defaultList = function () {
-    taskArr = ["Do laundry", "Practice Coding", "Buy milk", "Pack sportswear"];
+    taskArr = [
+        createTask("Do laundry"),
+        createTask("Practice Coding"),
+        createTask("Buy milk"),
+        createTask("Pack sportswear")
+    ];
 }
 
 // Replace every single task with "Buy milk"
 let milkMania = function () {
     for (let i = 0; i < taskArr.length; i++ ) {
-        taskArr[i] = "Buy milk";
+        taskArr[i] = createTask("Buy milk");
+        
     }
 }
 
@@ -55,21 +89,21 @@ let milkMania = function () {
 let cookiesAndCream = function () {
     let listHasCookies = false;
     for (let i = 0; i < taskArr.length; i++) {
-        if (taskArr[i] == "Buy cookies") {
+        if (taskArr[i].taskDescription == "Buy cookies") {
             listHasCookies = true;
         }
     }
     if (listHasCookies) {
-        taskArr.push("Buy cream");
+        taskArr.push(createTask("Buy cream"));
     } else {
-        taskArr.push("Buy cookies");
+        taskArr.push(createTask("Buy cookies"));
     }
 }
 
-// Remove all tasks that are longer than five characters
+// Remove all tasks whose descriptions are longer than five characters
 let removeLongTasks = function () {
     for (let i = taskArr.length - 1; i >= 0; i-- ) {
-        if (taskArr[i].length > 5) {
+        if (taskArr[i].taskDescription.length > 5) {
             taskArr.splice(i,1);
         }
     }
