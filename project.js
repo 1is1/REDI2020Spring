@@ -1,17 +1,27 @@
-// HINT: When you need userinput, use the function called "prompt" 
+// TIPS: When you need userinput, use the function called "prompt" 
 
 // Example: 
 //    let answer = prompt("What is your name?");
 //  The line above will ask the user "What is your name?" and whatever the user replies, will be saved in the variable "answer".
 
-// The "taskArr" is the array you will be manipulating in this mini-project
-let taskArr = ["Do the dishes :/"]; 
+// The "taskArr" is the array you will be manipulating in this project
+let taskArr = [
+    {taskDescription: "Brush teeth!", isImportant: true},
+    {taskDescription: "This is another important task!", isImportant: true},
+    {taskDescription: "This is a not so important task", isImportant: false},
+    {taskDescription: "This is a another not so important task" }
+];
 
 // Ask for a todo-task and add it to the beginning of the array
 let addToTop = function () {}
 
 // Ask for a task and add it to end of the array
 let addToBottom = function () {}
+
+
+// Ask for a todo-task and add it to the beginning of the array with the field "isImportant" set to true
+let addImportant = function () {
+}
 
 // Remove an item from the beginning of the array
 let removeFromTop = function () {}
@@ -42,13 +52,3 @@ let cookiesAndCream = function () {}
 // Remove all tasks that are longer than five characters (tricky because when you remove something the indexes of the following elements shrink by 1)
 // Hint: Try reversing the array backwards
 let removeLongTasks = function () {}
-
-
-
-// Finetuning:
-// Some values might not be meaningful to add as a task, consider only adding the prompted value to the task array if it is a meaningful one
-// Examples:  
-//      - 'prompt' dialogue boxes that get canceled returns an 'undefined' value
-//      - 'prompt' dialogue boxes returns 'null' if you press 'ok' without writing anything in the field
-//      - if the prompt only has non-visible characters (spaces, linebreaks and such) that isn't a meaningful task either
-//        TIP: the following expression '!(/\S/.test(stringVariableName))' will return 'true' if variable 'stringVariableName' is a string with only whitespace.
