@@ -20,6 +20,7 @@ let addToBottom = function () {}
 
 
 // Ask for a todo-task and add it to the beginning of the array with the field "isImportant" set to true
+// Make sure it looks extra important by adding an "!" to the taskDescription
 let addImportant = function () {
 }
 
